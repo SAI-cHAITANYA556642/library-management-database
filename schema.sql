@@ -1,7 +1,7 @@
 CREATE DATABASE LibraryDB1;
 USE LibraryDB1;
 
- -- Author Table
+ --> Author Table
 CREATE TABLE Author (
     AuthorID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL
@@ -14,7 +14,7 @@ INSERT INTO Author (AuthorID,Name) VALUES
 
 select *from Author;
 
--- Category Table
+--> Category Table
 CREATE TABLE Category (
     CategoryID INT AUTO_INCREMENT PRIMARY KEY,
     CategoryName VARCHAR(100) NOT NULL
@@ -26,7 +26,7 @@ INSERT INTO Category (CategoryID,CategoryName) VALUES
 (4,'History');
 select* from Category;
 
--- Book Table
+-->Book Table
 CREATE TABLE Book (
     BookID INT AUTO_INCREMENT PRIMARY KEY,
     Title VARCHAR(200) NOT NULL,
@@ -41,7 +41,7 @@ INSERT INTO Book (Title, CategoryID) VALUES
 ('Dune', 3),
 ('Sapiens: A Brief History of Humankind', 4);
 SELECT * FROM Book;
--- Book_Author Table (Many-to-Many Relationship)
+--> Book_Author Table (Many-to-Many Relationship)
 CREATE TABLE Book_Author (
     BookID INT,
     AuthorID INT,
@@ -50,16 +50,16 @@ CREATE TABLE Book_Author (
     FOREIGN KEY (AuthorID) REFERENCES Author(AuthorID)
 );
 INSERT INTO Book_Author (BookID, AuthorID) VALUES
-(1, 1),      -- Harry Potter - J.K. Rowling
-(2, 2),      -- Game of Thrones - George R.R. Martin
-(3, 3),      -- Murder on the Orient Express - Agatha Christie
-(4, 4),      -- The Da Vinci Code - Dan Brown
-(5, 2),     -- Dune - George R.R. Martin (for example)
-(6, 1);      -- Sapiens - J.K. Rowling (for example)
+(1, 1),      --> Harry Potter -> J.K. Rowling
+(2, 2),      --> Game of Thrones -> George R.R. Martin
+(3, 3),      --> Murder on the Orient Express -> Agatha Christie
+(4, 4),      --> The Da Vinci Code -> Dan Brown
+(5, 2),     --> Dune -> George R.R. Martin (for example)
+(6, 1);      --> Sapiens -> J.K. Rowling (for example)
 
 select* from Book_Author;
 
--- Member Table
+--> Member Table
 CREATE TABLE Member (
     MemberID INT AUTO_INCREMENT PRIMARY KEY,
     Name VARCHAR(100) NOT NULL,
@@ -71,7 +71,7 @@ INSERT INTO Member (Name, Email) VALUES
 ('Charlie Brown', 'charlie@example.com');
 SELECT * FROM Member;
 
--- Loan Table
+--> Loan Table
 CREATE TABLE Loan (
     LoanID INT AUTO_INCREMENT PRIMARY KEY,
     BookID INT,
@@ -85,7 +85,7 @@ INSERT INTO Loan (BookID, MemberID, LoanDate, ReturnDate) VALUES
 (1, 1, '2025-08-01', '2025-08-15'),
 (2, 2, '2025-08-02', NULL);
 select *from loan;
--- join all the table data
+--> join all the table data
 
 SELECT 
     b.BookID,
