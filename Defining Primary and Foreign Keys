@@ -1,0 +1,22 @@
+##Defining Primary and Foreign Keys**
+##Primary Key: 
+-->A column that uniquely identifies each row in a table.  
+-->No two rows can have the same value, and it cannot be NULL. 
+
+Category Table (Parent)  
+CREATE TABLE Category (  
+    CategoryID INT AUTO_INCREMENT PRIMARY KEY,  
+    CategoryName VARCHAR(100) NOT NULL  
+);  
+
+##Foreign Key:
+-->A column that links one table to another.  
+-->The value must match an existing Primary Key in another table.
+
+Book Table (Child)  
+CREATE TABLE Book (  
+    BookID INT AUTO_INCREMENT PRIMARY KEY,  
+    Title VARCHAR(200) NOT NULL,  
+    CategoryID INT,  
+    FOREIGN KEY (CategoryID) REFERENCES Category(CategoryID)  
+);  
