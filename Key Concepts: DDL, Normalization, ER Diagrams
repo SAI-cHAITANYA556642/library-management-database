@@ -1,0 +1,29 @@
+##DDL [Data Definition Language]
+Part of SQL used to define and manage database structure.  
+Includes commands like:  
+CREATE → make new tables or databases  
+ALTER → modify existing tables  
+DROP → delete tables or databases  
+
+##Normalization  
+This is the process of organizing data in a database to reduce redundancy and improve data integrity.  
+It breaks large tables into smaller, related tables.  
+
+Common Normal Forms:  
+1NF: No repeating groups, atomic values only.  
+2NF: 1NF + no partial dependency on primary key.  
+3NF: 2NF + no transitive dependency (non-key attributes depend only on PK).  
+Example:  
+Instead of storing the author name in every book row, create an Author table and link it with a Foreign Key.  
+
+##ER Diagram[Entity Relationship Diagram] 
+A visual representation of entities (tables) and the relationships between them.  
+Shapes & Symbols:  
+Rectangle: Entity/Table  
+Diamond: Relationship  
+Line: Connection between entities  
+
+Example in LibraryDB:  
+Category → (1:N) → Book  
+Book ↔ (M:N) ↔ Author (via Book_Author)  
+Member → (1:N) → Loan  
