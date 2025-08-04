@@ -85,3 +85,30 @@ INSERT INTO Loan (BookID, MemberID, LoanDate, ReturnDate) VALUES
 (1, 1, '2025-08-01', '2025-08-15'),
 (2, 2, '2025-08-02', NULL);
 select *from loan;
+-- join all the table data
+
+SELECT 
+    b.BookID,
+    b.Title AS BookTitle,
+    c.CategoryName,
+    a.AuthorID,
+    a.Name AS AuthorName,
+    m.MemberID,
+    m.Name AS MemberName,
+    l.LoanID,
+    l.LoanDate,
+    l.ReturnDate
+FROM Book b
+JOIN Category c 
+    ON b.CategoryID = c.CategoryID
+JOIN Book_Author ba 
+    ON b.BookID = ba.BookID
+JOIN Author a 
+    ON ba.AuthorID = a.AuthorID
+LEFT JOIN Loan l 
+    ON b.BookID = l.BookID
+LEFT JOIN Member m 
+    ON l.MemberID = m.MemberID
+ORDER BY b.BookID, l.LoanDate;
+
+
